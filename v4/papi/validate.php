@@ -6,10 +6,13 @@ if ('phone' === $submissionType) {
     echo json_encode(['code' => 200, 'body' => true]);
     die();
 
-} else if ('location' === $submissionType && key_exists('postal', $_GET)) {
-    zip();
+} 
+// else if ('location' === $submissionType && key_exists('postal', $_GET)) {
+//     zip();
 
-} else if ('next' === $submissionType && key_exists('step', $_GET) && 'Q10' === $_GET['step']) {
+// }
+
+else if ('next' === $submissionType && key_exists('step', $_GET) && 'Q10' === $_GET['step']) {
     echo json_encode(['code' => 200, 'body' => true]);
     die();
 } else {
