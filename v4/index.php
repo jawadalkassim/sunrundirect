@@ -1073,7 +1073,7 @@
                     const spentTime = endDate.getTime() - this.startDateSinceLast.getTime();
                     this.startDateSinceLast = new Date();
                     // elapsedTime contains the time spent on page in milliseconds
-                    $.get("./papi/persist.php?op=" + type + "&sub_type=" + sub_type + "&duration=" + spentTime, function(data) {
+                    $.get("/papi/persist.php?op=" + type + "&sub_type=" + sub_type + "&duration=" + spentTime, function(data) {
                         /* do nothing */
                     });
                 }
@@ -1179,7 +1179,7 @@
                 }
 
                 working.show();
-                ajaxVerify("./papi/validate.php?op=location&version=v4&postal=" + postal, function(response) {
+                ajaxVerify("/papi/validate.php?op=location&version=v4&postal=" + postal, function(response) {
                     const details = response.body;
                     serverCity = details.city;
                     serverState = details.state;
@@ -16197,7 +16197,7 @@
             }
 
             function makeRequest(step) {
-                ajaxVerify("./papi/validate.php?op=next&step=" + step + "&version=v4", function(response) {
+                ajaxVerify("/papi/validate.php?op=next&step=" + step + "&version=v4", function(response) {
                     // do nothing for now
                 }, function() {
                     // do nothing for now
@@ -16635,7 +16635,7 @@
 
             function iwVerify(em, zip) {
                 if (!iwVerified) {
-                    ajaxVerify("./papi/validate.php?op=iw&version=v4&address=" + em + "&zip=" + zip,
+                    ajaxVerify("/papi/validate.php?op=iw&version=v4&address=" + em + "&zip=" + zip,
                         function() {
                             window._loq.push(["tag", 'IW Queried', true]);
                         },
@@ -16690,7 +16690,7 @@
                 field.addClass("error");
                 const field_id = field.attr("id");
                 $("#" + field_id + "_error").show();
-                $.get("./papi/persist.php?op=form_error&sub_type=" + field_id + "&error=" + encodeURIComponent(error), function(data) {
+                $.get("/papi/persist.php?op=form_error&sub_type=" + field_id + "&error=" + encodeURIComponent(error), function(data) {
                     /* do nothing */
                 });
                 toggleNextButtons(true);
@@ -16764,7 +16764,7 @@
             });
 
             let persistClickEngagement = () => {
-                $.get("./papi/persist.php?op=click", function(data) {
+                $.get("/papi/persist.php?op=click", function(data) {
                     /* do nothing */
                 });
                 persistClickEngagement = () => {
@@ -16983,7 +16983,7 @@
                                 success();
                                 return;
                             }
-                            $.get("./papi/validate.php?op=posted&version=v4&id=" + conversion_id, function(res) {
+                            $.get("/papi/validate.php?op=posted&version=v4&id=" + conversion_id, function(res) {
                                     if (res.message === "posted") {
                                         if (typeof success == 'function') {
                                             measureSubmissionDuration.capture('complete');
@@ -17028,7 +17028,7 @@
                             () => {
                                 $.ajax({
                                         type: "POST",
-                                        url: "./papi/submit.php?",
+                                        url: "/papi/submit.php?",
                                         data: data,
                                         timeout: 30000,
                                         error: function() {
@@ -17202,7 +17202,7 @@
 
 
                     working.show();
-                    ajaxVerify("./papi/validate.php?op=location&version=v4&postal=" + postal, function(response) {
+                    ajaxVerify("/papi/validate.php?op=location&version=v4&postal=" + postal, function(response) {
 
                         let details = response.body;
                         details = JSON.parse(details)
@@ -17245,7 +17245,7 @@
                     }
 
                     working.show();
-                    const path = "./papi/validate.php?op=email&version=v4&address=" + value + "&zip=" + zip.val();
+                    const path = "/papi/validate.php?op=email&version=v4&address=" + value + "&zip=" + zip.val();
                     ajaxVerify(path,
                         function(data) {
                             working.hide();
@@ -17273,7 +17273,7 @@
                         return false;
                     }
                     working.show();
-                    const path = "./papi/validate.php?op=phone&number=" + lookupValue + "&version=v4";
+                    const path = "/papi/validate.php?op=phone&number=" + lookupValue + "&version=v4";
                     ajaxVerify(path,
                         function() {
                             working.hide();
@@ -17364,7 +17364,7 @@
                         if (err) {
                             err.style.display = 'block';
                         }
-                        $.get("./papi/persist.php?op=error&sub_type=" + input.id + "&error=failed+html5+rule", function(data) {
+                        $.get("/papi/persist.php?op=error&sub_type=" + input.id + "&error=failed+html5+rule", function(data) {
                             /* do nothing */
                         });
                         toggleSubmitButtons(true);
@@ -17393,7 +17393,7 @@
         //     const spentTime = endDate.getTime() - startDate.getTime();
         //     elapsedTime += spentTime;
         //     // elapsedTime contains the time spent on page in milliseconds
-        //     $.get("./papi/persist.php?op=" + bounceType + "&duration=" + elapsedTime, function(data) {
+        //     $.get("/papi/persist.php?op=" + bounceType + "&duration=" + elapsedTime, function(data) {
         //         /* do nothing */
         //     });
         // };
@@ -17402,7 +17402,7 @@
         //window.addEventListener('beforeunload', beforeunload);
 
         document.addEventListener('DOMContentLoaded', function() {
-            var dependencies = [".\/assets\/js\/jquery.min.js"];
+            var dependencies = ["\/assets\/js\/jquery.min.js"];
             var dependencyChain = dependencies.reduce(function(p, href) {
                 return p.then(function() {
                     return new Promise(function(resolve, reject) {
@@ -17424,13 +17424,13 @@
                     $('.form-steps, .form-steps:hidden').each(function() {
                         tags.push($(this).data('tag'));
                     });
-                    $.get("./papi/persist.php?op=pageview&sub_type=form&tags=" + encodeURIComponent(tags.join(',')), function(data) {
+                    $.get("/papi/persist.php?op=pageview&sub_type=form&tags=" + encodeURIComponent(tags.join(',')), function(data) {
                         /* do nothing */
                     });
                 }, 1500);
 
                 function scrollEgngaged(event) {
-                    $.get("./papi/persist.php?op=scrolled", function(data) {
+                    $.get("/papi/persist.php?op=scrolled", function(data) {
                         /* do nothing */
                     });
                     document.removeEventListener('scroll', scrollEgngaged, true);
