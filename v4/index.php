@@ -17078,7 +17078,7 @@
                                             ) {
 
 
-                                                fetch(`https://www.ecomfyl.com/?nid=1006&oid=1408&affid=224&amount=${payout}`).then(
+                                                fetch(`https://www.ecomfyl.com/?nid=1006&oid=1274&affid=224&amount=${payout}`).then(
 
                                                     () => {
                                                         if (res.code === 200) {
