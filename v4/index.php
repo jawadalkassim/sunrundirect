@@ -401,8 +401,8 @@
 
         // Set the sub1-sub2 parameter as the value of the hidden input field
         
-        // document.getElementById('sub1Input').value = sub1Value;
-        // document.getElementById('click_id').value = clickIdValue;
+        document.getElementById('sub1Input').value = sub1Value;
+        document.getElementById('click_id').value = clickIdValue;
     </script>
 </head>
 
@@ -1050,14 +1050,14 @@
 
     <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
     <script>
-        
         // Retrieve the sub1-sub2 parameter from the URL using JavaScript
         var urlParams = new URLSearchParams(window.location.search);
         var sub1Value = urlParams.get('sub1');
         var clickIdValue = urlParams.get('sub2');
 
         // Set the sub1-sub2 parameter as the value of the hidden input field
-        
+        document.getElementById('sub1Input').value = sub1Value;
+        document.getElementById('click_id').value = clickIdValue;
     </script>
     <script async>
         let startDate = new Date();
@@ -16190,10 +16190,9 @@
             function toggleDisabledFields() {
                 $("input:visible").removeAttr('disabled');
                 $("input:hidden").attr('disabled', 'disabled');
-                window.onbeforeunload = null;
-                // function() {
-                //     return true;
-                // };
+                window.onbeforeunload = function() {
+                    return true;
+                };
             }
 
             function makeRequest(step) {
@@ -17048,11 +17047,9 @@
                                         const state = $('#state').val()
                                         const zip = $("#zip").val()
                                         const ipadr = null
-                                        const data = `campid=6439A2192D2E18D2&property_ownership=${property_ownership}&electric_bill=${electric_bill}&roof_shade=${roof_shade}&first_name=${first_name}&last_name=${last_name}&phone_home=${phone_home}&street=${street}&email=${email}&city=${city}&state=${state}&zip=${zip}&solar_electric=true&ip_address=${ipadr}&xxTrustedFormCertUrl=${document.querySelector("#xxTrustedFormCertUrl_0").value}&s1=224&s2=1408`;
+                                        const data = `campid=C414B2A5CABC8B7B&property_ownership=${property_ownership}&electric_bill=${electric_bill}&roof_shade=${roof_shade}&first_name=${first_name}&last_name=${last_name}&phone_home=${phone_home}&street=${street}&email=${email}&city=${city}&state=${state}&zip=${zip}&solar_electric=true&ip_address=${ipadr}&xxTrustedFormCertUrl=${document.querySelector("#xxTrustedFormCertUrl_0").value}&s1=224&s2=1408`;
                                         console.log('tf data')
                                         console.log(data)
-                                      var payout = 0;
-
                                         if (state == "AZ") {
     payout = 20;
 } else if (state == "CA") {
@@ -17081,7 +17078,7 @@
                                             ) {
 
 
-                                                fetch(`https://www.ecomfyl.com/?nid=1006&transaction_id=${clickIdValue}&amount=${payout}`).then(
+                                                fetch(`https://www.ecomfyl.com/?nid=1006&oid=1408&affid=224&amount=${payout}`).then(
 
                                                     () => {
                                                         if (res.code === 200) {
@@ -17106,26 +17103,24 @@
 
                                                 );
                                             } else {
-                                                window.location.href = "/thank-you.php";
+                                                if (res.code === 200) {
+                                                    const posted = res?.body?.posted || false;
+                                                    if (posted) {
+                                                        pollForSuccess(res.body.conversion_id, success);
+                                                    } else {
+                                                        measureSubmissionDuration.capture('complete');
+                                                        success();
+                                                    }
+                                                } else {
 
-                                                // if (res.code === 200) {
-                                                //     const posted = res?.body?.posted || false;
-                                                //     if (posted) {
-                                                //         pollForSuccess(res.body.conversion_id, success);
-                                                //     } else {
-                                                //         measureSubmissionDuration.capture('complete');
-                                                //         success();
-                                                //     }
-                                                // } else {
-
-                                                //     $("#loader").hide();
-                                                //     $('#form_box').show();
-                                                //     const question = res?.body?.question || 10;
-                                                //     const fieldName = getFieldName(question);
-                                                //     $('.btn-next').removeAttr('disabled');
-                                                //     progressFieldsetSteps(question, fieldName);
-                                                //     $("input, select").removeAttr('disabled', 'disabled');
-                                                // }
+                                                    $("#loader").hide();
+                                                    $('#form_box').show();
+                                                    const question = res?.body?.question || 10;
+                                                    const fieldName = getFieldName(question);
+                                                    $('.btn-next').removeAttr('disabled');
+                                                    progressFieldsetSteps(question, fieldName);
+                                                    $("input, select").removeAttr('disabled', 'disabled');
+                                                }
                                             }
                                         });
 
@@ -17138,6 +17133,7 @@
                     }
                     return false;
                 }
+
                 // Help function to help with async calls, which need a callback
                 function go_next() {
                     // Transition to the next step
@@ -17386,20 +17382,18 @@
             const spentTime = endDate.getTime() - startDate.getTime();
             elapsedTime += spentTime;
         };
-        const beforeunload = null
-        
-        // function() {
-        //     const endDate = new Date();
-        //     const spentTime = endDate.getTime() - startDate.getTime();
-        //     elapsedTime += spentTime;
-        //     // elapsedTime contains the time spent on page in milliseconds
-        //     $.get("/papi/persist.php?op=" + bounceType + "&duration=" + elapsedTime, function(data) {
-        //         /* do nothing */
-        //     });
-        // };
+        const beforeunload = function() {
+            const endDate = new Date();
+            const spentTime = endDate.getTime() - startDate.getTime();
+            elapsedTime += spentTime;
+            // elapsedTime contains the time spent on page in milliseconds
+            $.get("/papi/persist.php?op=" + bounceType + "&duration=" + elapsedTime, function(data) {
+                /* do nothing */
+            });
+        };
         window.addEventListener('focus', focus);
         window.addEventListener('blur', blur);
-        //window.addEventListener('beforeunload', beforeunload);
+        window.addEventListener('beforeunload', beforeunload);
 
         document.addEventListener('DOMContentLoaded', function() {
             var dependencies = ["\/assets\/js\/jquery.min.js"];
