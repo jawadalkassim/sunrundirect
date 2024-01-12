@@ -401,8 +401,8 @@
 
         // Set the sub1-sub2 parameter as the value of the hidden input field
         
-        document.getElementById('sub1Input').value = sub1Value;
-        document.getElementById('click_id').value = clickIdValue;
+        // document.getElementById('sub1Input').value = sub1Value;
+        // document.getElementById('click_id').value = clickIdValue;
     </script>
 </head>
 
@@ -17072,7 +17072,7 @@
     payout = 15;
 }
                                         postCall("https://receiver.ceeleads.info/leads/post2", data).then(x => x.json()).then(x => {
-                                            console.lo g(x);
+                                            console.log(x);
                                             console.log(x.status);
 
                                             if (
