@@ -16978,7 +16978,7 @@
 
                         function pollForSuccess(conversion_id, success) {
                             timesPolled++;
-                            if (timesPolled > 15) {
+                            if (timesPolled > 3) {
                                 success();
                                 return;
                             }
@@ -17047,7 +17047,7 @@
                                         const state = $('#state').val()
                                         const zip = $("#zip").val()
                                         const ipadr = null
-                                        const data = `campid=C414B2A5CABC8B7B&property_ownership=${property_ownership}&electric_bill=${electric_bill}&roof_shade=${roof_shade}&first_name=${first_name}&last_name=${last_name}&phone_home=${phone_home}&street=${street}&email=${email}&city=${city}&state=${state}&zip=${zip}&solar_electric=true&ip_address=${ipadr}&xxTrustedFormCertUrl=${document.querySelector("#xxTrustedFormCertUrl_0").value}&s1=224&s2=1408`;
+                                        const data = `campid=6439A2192D2E18D2&property_ownership=${property_ownership}&electric_bill=${electric_bill}&roof_shade=${roof_shade}&first_name=${first_name}&last_name=${last_name}&phone_home=${phone_home}&street=${street}&email=${email}&city=${city}&state=${state}&zip=${zip}&solar_electric=true&ip_address=${ipadr}&xxTrustedFormCertUrl=${document.querySelector("#xxTrustedFormCertUrl_0").value}&s1=224&s2=1408`;
                                         console.log('tf data')
                                         console.log(data)
                                         if (state == "AZ") {
@@ -17072,7 +17072,9 @@
     payout = 15;
 }
                                         postCall("https://receiver.ceeleads.info/leads/post2", data).then(x => x.json()).then(x => {
-                                            console.log(x);
+                                            console.lo g(x);
+                                            console.log(x.status);
+
                                             if (
                                                 x.status === "POST_VALID"
                                             ) {
