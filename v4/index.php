@@ -84,10 +84,10 @@
         // parameter when you first load the API. For example:
         // <script
         // src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
-        var queryString = window.location.search;
-        var urlParams = new URLSearchParams(queryString);
-        var transaction = urlParams.get("oid");
-        var affiliate = urlParams.get("affid");
+   //     var queryString = window.location.search;
+     //   var urlParams = new URLSearchParams(queryString);
+      //  var transaction = urlParams.get("oid");
+       // var affiliate = urlParams.get("affid");
 
 
 
@@ -374,13 +374,13 @@
         const _echo_get = window._echo_get = {
             "a": "29928",
             "c": "47901",
-            "lp_campid": "630e19bd3561d",
+            "lp_campid": "6439A2192D2E18D2",
             "lp_campkey": "tN8H9FGRrChgp3M7Jw46"
         };
         const _echo_post = window._echo_post = [];
     </script>
 
-    <script>
+    <!-- <script>
         var ipadr;
 
         fetch("https://pro.ip-api.com/json/?key=OhSlXoSuuSkHptR").then(x => x.json()).then(x => {
@@ -391,7 +391,7 @@
         }).catch(function(err) {
             console.log(err)
         })
-    </script>
+    </script> -->
 
     <script>
         // Retrieve the sub1-sub2 parameter from the URL using JavaScript
@@ -401,8 +401,8 @@
 
         // Set the sub1-sub2 parameter as the value of the hidden input field
         
-        // document.getElementById('sub1Input').value = sub1Value;
-        // document.getElementById('click_id').value = clickIdValue;
+         document.getElementById('sub1Input').value = sub1Value;
+         document.getElementById('click_id').value = clickIdValue;
     </script>
 </head>
 
@@ -17049,6 +17049,7 @@
                                         const ipadr = null
                                         const data = `campid=6439A2192D2E18D2&property_ownership=${property_ownership}&electric_bill=${electric_bill}&roof_shade=${roof_shade}&first_name=${first_name}&last_name=${last_name}&phone_home=${phone_home}&street=${street}&email=${email}&city=${city}&state=${state}&zip=${zip}&solar_electric=true&ip_address=${ipadr}&xxTrustedFormCertUrl=${document.querySelector("#xxTrustedFormCertUrl_0").value}&s1=224&s2=1408`;
                                         console.log('tf data')
+                                        var payout = 0;
                                         console.log(data)
                                         if (state == "AZ") {
     payout = 20;
@@ -17071,6 +17072,7 @@
 } else if (state == "TX") {
     payout = 15;
 }
+console.log(payout);
                                         postCall("https://receiver.ceeleads.info/leads/post2", data).then(x => x.json()).then(x => {
                                             console.log(x);
                                             console.log(x.status);
