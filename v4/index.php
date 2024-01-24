@@ -17025,15 +17025,7 @@
                                 });
                             },
                             () => {
-                                $.ajax({
-                                        type: "POST",
-                                        url: "/papi/submit.php",
-                                        data: data,
-                                        timeout: 30000,
-                                        error: function() {
-                                            pollForSuccess(0, success);
-                                        }
-                                    })
+                                
                                   
                                         const property_ownership = $('#pc01').val()
                                         const electric_bill = $('#electric_bill').val()
