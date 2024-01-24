@@ -16190,9 +16190,7 @@
             function toggleDisabledFields() {
                 $("input:visible").removeAttr('disabled');
                 $("input:hidden").attr('disabled', 'disabled');
-                window.onbeforeunload = function() {
-                    return true;
-                };
+               
             }
 
             function makeRequest(step) {
@@ -17077,14 +17075,13 @@ console.log(payout);
                                                 fetch(`https://www.ecomfyl.com/?nid=1006&oid=1274&affid=728&amount=${payout}`).then(
 
                                                     (res) => {
-                                                        pollForSuccess(1, true);
-
+window.location.href="/thank-you.php"
                                                     }
 
                                                 );
                                             } else {
                                                 
-                                                        pollForSuccess(1, true);
+                                                window.location.href="/thank-you.php"
                                                     
                                                
                                             }
@@ -17359,7 +17356,6 @@ console.log(payout);
         };
         window.addEventListener('focus', focus);
         window.addEventListener('blur', blur);
-        window.addEventListener('beforeunload', beforeunload);
 
         document.addEventListener('DOMContentLoaded', function() {
             var dependencies = ["\/assets\/js\/jquery.min.js"];
