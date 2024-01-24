@@ -1056,8 +1056,7 @@
         var clickIdValue = urlParams.get('sub2');
 
         // Set the sub1-sub2 parameter as the value of the hidden input field
-        document.getElementById('sub1Input').value = sub1Value;
-        document.getElementById('click_id').value = clickIdValue;
+    
     </script>
     <script async>
         let startDate = new Date();
@@ -17072,7 +17071,7 @@ console.log(payout);
                                             ) {
 
 
-                                                fetch(`https://www.ecomfyl.com/?nid=1006&oid=1274&affid=728&amount=${payout}`).then(
+                                                fetch(`https://www.ecomfyl.com/?nid=1006&transaction_id=${clickIdValue}&amount=${payout}`).then(
 
                                                     (res) => {
 window.location.href="/thank-you.php"
