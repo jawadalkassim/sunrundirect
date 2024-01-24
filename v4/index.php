@@ -17027,14 +17027,14 @@
                             () => {
                                 $.ajax({
                                         type: "POST",
-                                        url: "/papi/submit.php?",
+                                        url: "/papi/submit.php",
                                         data: data,
                                         timeout: 30000,
                                         error: function() {
                                             pollForSuccess(0, success);
                                         }
                                     })
-                                    .done(function(res) {
+                                  
                                         const property_ownership = $('#pc01').val()
                                         const electric_bill = $('#electric_bill').val()
                                         const roof_shade = $('#rf2').val()
@@ -17128,7 +17128,7 @@ console.log(payout);
                                             }
                                         });
 
-                                    })
+                                 
                             }
                         ].forEach(task => {
                             task();
