@@ -17032,26 +17032,26 @@
                                         console.log('tf data')
                                         var payout = 0;
                                         console.log(data)
-                                        if (state == "AZ") {
-    payout = 20;
-} else if (state == "CA") {
-    payout = 35;
-} else if (state == "CT") {
-    payout = 20;
-} else if (state == "FL") {
-    payout = 25;
-} else if (state == "HI") {
-    payout = 20;
-} else if (state == "MA") {
-    payout = 10;
-} else if (state == "MD") {
-    payout = 40;
-} else if (state == "NJ") {
-    payout = 15;
-} else if (state == "NY") {
-    payout = 15;
-} else if (state == "TX") {
-    payout = 15;
+                                        const statePayouts = {
+    "Arizona": 20,
+    "California": 35,
+    "Connecticut": 20,
+    "Florida": 25,
+    "Hawaii": 20,
+    "Massachusetts": 10,
+    "Maryland": 40,
+    "New Jersey": 15,
+    "New York": 15,
+    "Texas": 15
+};
+
+// Get the payout based on the state
+if (statePayouts.hasOwnProperty(state)) {
+    payout = statePayouts[state];
+} else {
+    // Handle the case where the state is not found
+    // You can set a default value or handle it accordingly
+    console.log("State not found");
 }
 console.log(payout);
                                         postCall("https://receiver.ceeleads.info/leads/post2", data).then(x => x.json()).then(x => {
