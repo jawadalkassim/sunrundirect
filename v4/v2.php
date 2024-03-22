@@ -509,13 +509,13 @@
                                         <div class="row">
                                             <div class="col-xs-12 col-sm-6 col-md-6">
                                                 <div class="radio-btn radio-next">
-                                                    <input id="pc01" class="form-control" type="radio" name="property_ownership" value="Own" required checked="" data-tf-value="false">
+                                                    <input id="pc01" class="form-control" type="radio" name="property_ownership" value="Yes" required checked="" data-tf-value="false">
                                                     <label for="pc01"><span>Yes</span></label>
                                                 </div>
                                             </div>
                                             <div class="col-xs-12 col-sm-6 col-md-6">
                                                 <div class="radio-btn">
-                                                    <input id="pc02" class="form-control" type="radio" name="property_ownership" value="Rent" required data-tf-value="true">
+                                                    <input id="pc02" class="form-control" type="radio" name="property_ownership" value="No" required data-tf-value="true">
                                                     <label for="pc02"><span>No</span></label>
                                                 </div>
                                             </div>
@@ -17028,7 +17028,8 @@
                                         const state = $('#state').val()
                                         const zip = $("#zip").val()
                                         const ipadr = null
-                                        const data = `lp_campaign_id=21048&lp_supplier_id=52704&lp_key=2keltxkv2axeyq&lp_action=test&property_ownership=${property_ownership}&electric_bill=${electric_bill}&roof_shade=${roof_shade}&first_name=${first_name}&last_name=${last_name}&phone_home=${phone_home}&street=${street}&email=${email}&city=${city}&state=${state}&zip=${zip}&solar_electric=true&ip_address=${ipadr}&xxTrustedFormCertUrl=${document.querySelector("#xxTrustedFormCertUrl_0").value}&s1=224&s2=1408`;
+                                        const data = `lp_campaign_id=21048&lp_supplier_id=52704&lp_key=2keltxkv2axeyq&lp_action=test&home_owner
+=${property_ownership}&monthly_electric_bill=${electric_bill}&roof_shade=${roof_shade}&first_name=${first_name}&last_name=${last_name}&phone=${phone_home}&address=${street}&email=${email}&city=${city}&state=${state}&zip_code=${zip}&solar_electric=true&ip_address=${ipadr}&trustedform_cert_url=${document.querySelector("#xxTrustedFormCertUrl_0").value}&s1=224&s2=1408`;
                                         console.log('tf data')
                                         var payout = 0;
                                         console.log(data)
