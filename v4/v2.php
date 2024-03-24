@@ -594,11 +594,11 @@ fetch('https://ipinfo.io/json')
                                             <label for="rf1"><span>Full Sun</span></label>
                                         </div>
                                         <div class="radio-btn">
-                                            <input id="rf2" type="radio" name="roof_shade" value="A Little Shade" required data-tf-value="false">
+                                            <input id="rf2" type="radio" name="roof_shade" value="Some Shade" required data-tf-value="false">
                                             <label for="rf2"><span>Partial Sun</span></label>
                                         </div>
                                         <div class="radio-btn">
-                                            <input id="rf3" type="radio" name="roof_shade" value="A Lot of Shade" data-tf-value="false">
+                                            <input id="rf3" type="radio" name="roof_shade" value="Full Shade" data-tf-value="false">
                                             <label for="rf3"><span>A Lot of Shade</span></label>
                                         </div>
                                         <div class="radio-btn">
