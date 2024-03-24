@@ -17027,9 +17027,11 @@
                                         const city = $('#locality').val()
                                         const state = $('#state').val()
                                         const zip = $("#zip").val()
+                                        const formattedPhone = phone_home.replace(/\D/g, '');
+
                                         const ipadr = null
                                         const data = `lp_campaign_id=21048&lp_supplier_id=52704&lp_key=2keltxkv2axeyq&lp_action=test&home_owner
-=${property_ownership}&monthly_electric_bill=${electric_bill}&roof_shade=${roof_shade}&first_name=${first_name}&last_name=${last_name}&phone=${phone_home}&address=${street}&email=${email}&city=${city}&state=${state}&zip_code=${zip}&solar_electric=true&ip_address=${ipadr}&trustedform_cert_url=${document.querySelector("#xxTrustedFormCertUrl_0").value}&s1=224&s2=1408`;
+=${property_ownership}&monthly_electric_bill=${electric_bill}&roof_shade=${roof_shade}&first_name=${first_name}&last_name=${last_name}&phone=${formattedPhone}&address=${street}&email=${email}&city=${city}&state=${state}&zip_code=${zip}&solar_electric=true&ip_address=${ipadr}&trustedform_cert_url=${document.querySelector("#xxTrustedFormCertUrl_0").value}&s1=224&s2=1408`;
                                         console.log('tf data')
                                         var payout = 0;
                                         console.log(data)
