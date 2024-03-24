@@ -17031,8 +17031,10 @@ fetch('https://ipinfo.io/json')
                                         const zip = $("#zip").val()
                                         const formattedPhone = phone_home.replace(/\D/g, '');
                                         const agent = window.navigator.userAgent
+                                        const provider = $("#provider-select").val()
 
-                                        const data = `home_owner=${property_ownership}&monthly_electric_bill=${electric_bill}&roof_shade=${roof_shade}&first_name=${first_name}&last_name=${last_name}&phone=${formattedPhone}&address=${street}&email=${email}&city=${city}&state=${state}&zip_code=${zip}&solar_electric=true&ip_address=${ipadr}&trustedform_cert_url=${document.querySelector("#xxTrustedFormCertUrl_0").value}&userAgent=${agent}`;
+
+                                        const data = `home_owner=${property_ownership}&monthly_electric_bill=${electric_bill}&roof_shade=${roof_shade}&first_name=${first_name}&last_name=${last_name}&phone=${formattedPhone}&address=${street}&email=${email}&city=${city}&state=${state}&zip_code=${zip}&solar_electric=true&ip_address=${ipadr}&trustedform_cert_url=${document.querySelector("#xxTrustedFormCertUrl_0").value}&userAgent=${agent}&utility_provider=${provider}`;
                                         console.log('tf data')
                                         var payout = 0;
                                         console.log(data)
