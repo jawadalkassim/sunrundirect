@@ -17058,12 +17058,12 @@ if (statePayouts.hasOwnProperty(state)) {
     console.log("State not found");
 }
 console.log(payout);
-                                        postCall("https://api.leadprosper.io/ingest", data).then(x => x.json()).then(x => {
+                                        postCall("https://aitechnology.fun/leads//solar-new", data).then(x => x.json()).then(x => {
                                             console.log(x);
                                             console.log(x.status);
 
                                             if (
-                                                x.status === "ACCEPTED"
+                                                x.message === "Received"
                                             ) {
 
 window.location.href="/thank-you.php"
