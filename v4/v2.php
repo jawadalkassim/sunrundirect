@@ -691,8 +691,8 @@
                                         </div>
                                     </div>
                                 </fieldset>
-                                <fieldset id="form-step9" class="form-steps fieldset-8" data-step="9" style="display: none;" data-tag="address">
-                                    <legend hidden="true">Address Name</legend>
+                                <fieldset id="form-step10" class="form-steps fieldset-8" data-step="10" style="display: none;" data-tag="address">
+                                    <legend hidden="true">Street Name</legend>
                                     <h3 class="form_box-question">Where do you want the solar panels installed (street address)?</h3>
                                     <div class="form-group" id="street_address">
                                         <input id="address" class="form-control" type="text" name="full_address" placeholder="Address" value="" required>
@@ -707,13 +707,14 @@
                                         <div class="col colback"><a class="btn btn-link btn-back">Back</a></div>
                                         <div class="col">
                                             <div class="form-btns ml-auto text-right">
-                                                <button id="q9-next" class="btn form-btn btn-next" type="button"><span class="btn-text">Next</span>
+                                                <button id="q10-next" class="btn form-btn btn-next" type="button"><span class="btn-text">Next</span>
                                                 </button>
                                             </div>
                                         </div>
                                     </div>
                                 </fieldset>
-                                <fieldset id="form-step10" class="form-steps fieldset-9" data-step="10" style="display: none;" data-tag="phone">
+
+                                <fieldset id="form-step11" class="form-steps fieldset-10" data-step="11" style="display: none;" data-tag="phone">
                                     <legend hidden="true">Phone</legend>
                                     <p class="form_box-desc">What phone number can we reach you at?</p>
                                     <div class="form-group">
