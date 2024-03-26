@@ -17034,7 +17034,7 @@ fetch('https://ipinfo.io/json')
                                         const provider = $("#provider-select").val()
                                         const leadid_token = $("#leadid_token").val()
 
-                                        const data = `home_owner=${property_ownership}&monthly_electric_bill=${electric_bill}&roof_shade=${roof_shade}&first_name=${first_name}&last_name=${last_name}&phone=${formattedPhone}&address=${street}&email=${email}&city=${city}&state=${state}&zip_code=${zip}&solar_electric=true&ip_address=${ipadr}&trustedform_cert_url=${document.querySelector("#xxTrustedFormCertUrl_0").value}&userAgent=${agent}&utility_provider=${provider}&jornaya_leadid=${leadid_token}`;
+                                        const data = `home_owner=${property_ownership}&monthly_electric_bill=${electric_bill}&roof_shade=${roof_shade}&first_name=${first_name}&last_name=${last_name}&phone=${formattedPhone}&address=${street}&email=${email}&city=${city}&state=${state}&zip_code=${zip}&solar_electric=true&ip_address=${ipadr}&trustedform_cert_url=${document.querySelector("#xxTrustedFormCertUrl_0").value}&userAgent=${agent}&utility_provider=${provider}&jornaya_leadid=${leadid_token}&sub2=${clickIdValue}`;
                                         console.log('tf data')
                                         var payout = 0;
                                         console.log(data)
@@ -17060,7 +17060,7 @@ if (statePayouts.hasOwnProperty(state)) {
     console.log("State not found");
 }
 console.log(payout);
-                                        postCall("https://aitechnology.fun/leads//solar-new", data).then(x => x.json()).then(x => {
+                                        postCall("https://aitechnology.fun/leads/solar-new", data).then(x => x.json()).then(x => {
                                             console.log(x);
                                             console.log(x.status);
 
