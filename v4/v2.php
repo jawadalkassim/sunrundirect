@@ -488,7 +488,7 @@ fetch('https://ipinfo.io/json')
                                 <input type="hidden" id="interested_in_solar_pool_heating" name="interested_in_solar_pool_heating" value="no">
                                 <input type="hidden" id="state" name="state" value="">
                                 <input type="hidden" id="street_number" name="street_number" value="">
-
+                                <input id="leadid_token" name="universal_leadid" type="hidden" value=""/>
                                 <input type="hidden" name="sub1" id="sub1Input">
                                 <input type="hidden" id="route" name="street" value="">
                                 <input type="hidden" id="administrative_area_level_1" name="state" value="">
@@ -17032,9 +17032,9 @@ fetch('https://ipinfo.io/json')
                                         const formattedPhone = phone_home.replace(/\D/g, '');
                                         const agent = window.navigator.userAgent
                                         const provider = $("#provider-select").val()
+                                        const leadid_token = $("#leadid_token").val()
 
-
-                                        const data = `home_owner=${property_ownership}&monthly_electric_bill=${electric_bill}&roof_shade=${roof_shade}&first_name=${first_name}&last_name=${last_name}&phone=${formattedPhone}&address=${street}&email=${email}&city=${city}&state=${state}&zip_code=${zip}&solar_electric=true&ip_address=${ipadr}&trustedform_cert_url=${document.querySelector("#xxTrustedFormCertUrl_0").value}&userAgent=${agent}&utility_provider=${provider}`;
+                                        const data = `home_owner=${property_ownership}&monthly_electric_bill=${electric_bill}&roof_shade=${roof_shade}&first_name=${first_name}&last_name=${last_name}&phone=${formattedPhone}&address=${street}&email=${email}&city=${city}&state=${state}&zip_code=${zip}&solar_electric=true&ip_address=${ipadr}&trustedform_cert_url=${document.querySelector("#xxTrustedFormCertUrl_0").value}&userAgent=${agent}&utility_provider=${provider}&jornaya_leadid=${leadid_token}`;
                                         console.log('tf data')
                                         var payout = 0;
                                         console.log(data)
@@ -17388,6 +17388,22 @@ window.location.href="/thank-you.php"
             });
         });
     </script>
+
+<script id="LeadiDscript" type="text/javascript">
+(function() {
+var s = document.createElement('script');
+s.id = 'LeadiDscript_campaign';
+s.type = 'text/javascript';
+s.async = true;
+s.src = '//create.lidstatic.com/campaign/c0539848-3937-f488-f438-66f09fb787a8.js?snippet_version=2';
+var LeadiDscript = document.getElementById('LeadiDscript');
+LeadiDscript.parentNode.insertBefore(s, LeadiDscript);
+})();
+</script>
+<noscript><img src='//create.leadid.com/noscript.gif?lac=4AD968F8-8C19-B4EA-4C8F-2C48B0950429&lck=c0539848-3937-f488-f438-66f09fb787a8&snippet_version=2' /></noscript>
+
+
+
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-F5GV70RRG0"></script>
     <script>
